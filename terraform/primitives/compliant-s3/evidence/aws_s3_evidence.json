@@ -1,0 +1,59 @@
+{
+  "collected_at": "2026-05-08T00:00:00Z",
+  "lab": "CGE Lab 2.3 - Compliant S3",
+  "collector": "aws-cli + terraform show",
+  "primary_bucket": {
+    "name": "cgeplab-dev-data-01370bee",
+    "arn": "arn:aws:s3:::cgeplab-dev-data-01370bee",
+    "encryption": {
+      "SSEAlgorithm": "AES256",
+      "BucketKeyEnabled": false
+    },
+    "versioning": {
+      "Status": "Enabled"
+    },
+    "public_access_block": {
+      "BlockPublicAcls": true,
+      "IgnorePublicAcls": true,
+      "BlockPublicPolicy": true,
+      "RestrictPublicBuckets": true
+    },
+    "logging": {
+      "TargetBucket": "cgeplab-dev-logs-01370bee",
+      "TargetPrefix": "access-logs/"
+    },
+    "tags": {
+      "Project": "cgeplab",
+      "Environment": "dev",
+      "ManagedBy": "terraform",
+      "ComplianceScope": "cge-p-lab"
+    }
+  },
+  "log_bucket": {
+    "name": "cgeplab-dev-logs-01370bee",
+    "arn": "arn:aws:s3:::cgeplab-dev-logs-01370bee",
+    "encryption": {
+      "SSEAlgorithm": "AES256",
+      "BucketKeyEnabled": false
+    },
+    "public_access_block": {
+      "BlockPublicAcls": true,
+      "IgnorePublicAcls": true,
+      "BlockPublicPolicy": true,
+      "RestrictPublicBuckets": true
+    },
+    "tags": {
+      "Project": "cgeplab",
+      "Environment": "dev",
+      "ManagedBy": "terraform",
+      "ComplianceScope": "cge-p-lab"
+    }
+  },
+  "control_attestations": {
+    "SC-28_encryption_at_rest": "PASS - AES256 on both buckets",
+    "SI-12_logging": "PASS - access logs shipping to cgeplab-dev-logs-01370bee",
+    "SI-12_versioning": "PASS - versioning Enabled on primary bucket",
+    "AC-3_public_access_block": "PASS - all four block flags true on both buckets",
+    "compliance_tags": "PASS - Project, Environment, ManagedBy, ComplianceScope present on both buckets"
+  }
+}
