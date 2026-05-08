@@ -1,6 +1,6 @@
 # CGE Lab 2.3 — Compliant S3 Bucket
 
-Terraform module that provisions a compliance-ready S3 bucket pair (primary data bucket + access-log bucket) satisfying encryption-at-rest, access logging, versioning, and public-access controls required by NIST SP 800-53 SC-28, SI-12, and AU-9.
+This module enforces SC-28, AU-3, AU-6, CM-6, and AC-3 on a single S3 bucket. It provisions a primary data bucket and a dedicated access-log bucket with AES-256 encryption at rest, access logging, object versioning, public access blocking, and required compliance tags — all hardcoded so consumers cannot disable them.
 
 ## Resources created
 
