@@ -5,6 +5,9 @@
 *.tfstate
 *.tfstate.*
 
+# Evidence state files
+state.json
+
 # Crash log files
 crash.log
 crash.*.log
