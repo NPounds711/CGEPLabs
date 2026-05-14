@@ -10,6 +10,8 @@ This repository demonstrates practical implementation of Cloud Security, Infrast
 * **`policies/`**: Rego policy library mapped to NIST 800-53 controls, with GCP and AWS variants for SC-28, AC-3, and CM-6.
 * **`scripts/`**: Automation scripts for evidence capture and policy gating.
 * **`evidence/`**: JSON audit trails and test results proving the effectiveness of each lab's security controls.
+* **`oidc/`**: Terraform module that creates the AWS IAM OIDC provider and role for GitHub Actions keyless authentication.
+* **`.github/workflows/`**: GitHub Actions workflow that runs the GRC gate on every pull request.
 
 ## Labs
 
@@ -27,6 +29,9 @@ Authored three Rego policies mapping to NIST 800-53 controls (SC-28, AC-3, CM-6)
 
 ### Lab 3.4 — Integrating Policy as Code with Terraform via Conftest (AWS)
 Extended the Rego policy library with AWS-specific variants for SC-28, AC-3, and CM-6. Built a `policy-gate.sh` script that runs Conftest as a fail-closed gate, demonstrated a blocked plan on non-compliant infrastructure, and captured pass/fail evidence.
+
+### Lab 4.3 — GRC Evidence Pipeline (GitHub Actions)
+Wired the policy gate into GitHub Actions using AWS OIDC for keyless authentication. Every pull request automatically runs Terraform plan, Conftest policy checks, and tfsec security scanning. Evidence artifacts are uploaded to each workflow run. Demonstrated both a failing PR (red) and a passing PR (green) with full audit trail.
 
 ---
 *Maintained by Nicole Pounds*
