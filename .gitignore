@@ -8,6 +8,9 @@
 # Evidence state files
 state.json
 
+# Terraform plan binaries
+tfplan
+
 # Crash log files
 crash.log
 crash.*.log
