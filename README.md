@@ -33,5 +33,8 @@ Extended the Rego policy library with AWS-specific variants for SC-28, AC-3, and
 ### Lab 4.3 — GRC Evidence Pipeline (GitHub Actions)
 Wired the policy gate into GitHub Actions using AWS OIDC for keyless authentication. Every pull request automatically runs Terraform plan, Conftest policy checks, and tfsec security scanning. Evidence artifacts are uploaded to each workflow run. Demonstrated both a failing PR (red) and a passing PR (green) with full audit trail.
 
+### Lab 4.4 — Evidence Chain of Custody
+Extended the evidence pipeline with cryptographic chain-of-custody guarantees. Evidence bundles are SHA-256 hashed, signed with Cosign keyless signing via GitHub Actions OIDC (Sigstore), and stored in an S3 Object Lock vault with WORM retention. A `verify-evidence.sh` script checks all three properties (integrity, authenticity, preservation) for any run. Demonstrated tamper detection: modifying a single byte of the bundle causes immediate SHA mismatch failure.
+
 ---
 *Maintained by Nicole Pounds*
