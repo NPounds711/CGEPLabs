@@ -36,5 +36,8 @@ Wired the policy gate into GitHub Actions using AWS OIDC for keyless authenticat
 ### Lab 4.4 — Evidence Chain of Custody
 Extended the evidence pipeline with cryptographic chain-of-custody guarantees. Evidence bundles are SHA-256 hashed, signed with Cosign keyless signing via GitHub Actions OIDC (Sigstore), and stored in an S3 Object Lock vault with WORM retention. A `verify-evidence.sh` script checks all three properties (integrity, authenticity, preservation) for any run. Demonstrated tamper detection: modifying a single byte of the bundle causes immediate SHA mismatch failure.
 
+### Lab 5.2 — AWS Security Services Baseline
+Deployed CloudTrail (multi-region, log-file validation), Security Hub with NIST 800-53 Rev 5 and FSBP standards, and AWS Config as the AWS-native compliance backbone. Captured Security Hub findings as a JSON evidence artifact. Controls satisfied: AU-2, AU-12, AU-10 (CloudTrail), RA-5, SI-4 (Security Hub), CM-2, CM-6, CM-8 (Config).
+
 ---
 *Maintained by Nicole Pounds*
