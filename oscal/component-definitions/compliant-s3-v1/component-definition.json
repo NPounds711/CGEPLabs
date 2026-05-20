@@ -1,0 +1,103 @@
+{
+  "component-definition": {
+    "uuid": "4b2d6b2e-f49b-4579-8567-d8bf0413c75b",
+    "metadata": {
+      "title": "compliant-s3 module v1",
+      "last-modified": "2026-05-20T00:00:00.000000+00:00",
+      "version": "1.0.0",
+      "oscal-version": "1.2.1",
+      "parties": [
+        {
+          "uuid": "ceba9e76-e792-48c7-89a6-a4639d587339",
+          "type": "organization",
+          "name": "Nicole Pounds"
+        }
+      ]
+    },
+    "components": [
+      {
+        "uuid": "5e9538e9-20c0-40bd-abd0-661931817f44",
+        "type": "software",
+        "title": "compliant-s3",
+        "description": "Reusable Terraform pattern for an AWS S3 primary bucket plus a dedicated access-log bucket. Hardcodes server-side encryption, versioning, public access block, access logging, and required compliance tags.",
+        "purpose": "Provide a compliant-by-default S3 primitive that any team can adopt with three lines of consumer Terraform.",
+        "responsible-roles": [
+          { "role-id": "provider", "party-uuids": ["ceba9e76-e792-48c7-89a6-a4639d587339"] }
+        ],
+        "control-implementations": [
+          {
+            "uuid": "c59d52e9-1e5f-4dac-9431-3c03db92f6a6",
+            "source": "https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json",
+            "description": "Implementation of NIST 800-53 Rev 5 controls satisfied by this module.",
+            "implemented-requirements": [
+              {
+                "uuid": "39ce8baf-07f9-4950-b345-da3124764cd2",
+                "control-id": "sc-28",
+                "description": "AES-256 server-side encryption is enforced via aws_s3_bucket_server_side_encryption_configuration. Hardcoded; consumers cannot override.",
+                "props": [
+                  { "name": "implementation-status", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "implemented" },
+                  { "name": "terraform-resource", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "aws_s3_bucket_server_side_encryption_configuration.primary" }
+                ],
+                "links": [
+                  {
+                    "rel": "evidence",
+                    "href": "s3://cgep-lab-grc-evidence-vault-79796fb3/runs/lab-2-3-20260508/bundle.tar.gz",
+                    "text": "Signed pipeline bundle containing terraform plan.json."
+                  }
+                ]
+              },
+              {
+                "uuid": "4039262b-3d33-4d1d-8af6-2478211cea6a",
+                "control-id": "ac-3",
+                "description": "Public access block is hardcoded on both the primary and log buckets. All four public access settings are set to true; no consumer override is possible.",
+                "props": [
+                  { "name": "implementation-status", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "implemented" },
+                  { "name": "terraform-resource", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "aws_s3_bucket_public_access_block.primary" }
+                ],
+                "links": [
+                  {
+                    "rel": "evidence",
+                    "href": "s3://cgep-lab-grc-evidence-vault-79796fb3/runs/lab-2-3-20260508/bundle.tar.gz",
+                    "text": "Signed pipeline bundle containing terraform plan.json."
+                  }
+                ]
+              },
+              {
+                "uuid": "4349798c-19c5-4216-b9a8-d0d8c9be52f4",
+                "control-id": "au-3",
+                "description": "S3 access logging is enabled. All requests to the primary bucket are logged to a dedicated log bucket with a /logs prefix.",
+                "props": [
+                  { "name": "implementation-status", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "implemented" },
+                  { "name": "terraform-resource", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "aws_s3_bucket_logging.primary" }
+                ],
+                "links": [
+                  {
+                    "rel": "evidence",
+                    "href": "s3://cgep-lab-grc-evidence-vault-79796fb3/runs/lab-2-3-20260508/bundle.tar.gz",
+                    "text": "Signed pipeline bundle containing terraform plan.json."
+                  }
+                ]
+              },
+              {
+                "uuid": "9ecec6f6-04e8-428c-88c7-b2a47a82c45d",
+                "control-id": "cm-6",
+                "description": "Required compliance tags (project, environment, managed_by, compliance_scope) are enforced as module inputs with no defaults. Versioning is hardcoded to enabled.",
+                "props": [
+                  { "name": "implementation-status", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "implemented" },
+                  { "name": "terraform-resource", "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd", "value": "aws_s3_bucket.primary" }
+                ],
+                "links": [
+                  {
+                    "rel": "evidence",
+                    "href": "s3://cgep-lab-grc-evidence-vault-79796fb3/runs/lab-2-3-20260508/bundle.tar.gz",
+                    "text": "Signed pipeline bundle containing terraform plan.json."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
