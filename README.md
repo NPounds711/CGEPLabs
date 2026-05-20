@@ -42,5 +42,8 @@ Deployed CloudTrail (multi-region, log-file validation), Security Hub with NIST 
 ### Lab 5.4 — GCP Security Services Baseline
 Deployed Workload Identity Federation for GitHub Actions (replacing service account keys), enabled Data Access audit logs for Cloud Storage, Cloud KMS, and IAM (off by default — the most common GCP audit finding), and documented Org Policy controls for org-enrolled projects. Controls satisfied: AC-2, IA-5 (WIF), AU-2, AU-12 (audit logs), CM-6, AC-3 (Org Policy reference).
 
+### Lab 6.1 — Introduction to OSCAL
+Authored an OSCAL Component Definition describing how the compliant-s3 Terraform module implements NIST 800-53 Rev 5 controls SC-28, AC-3, AU-3, and CM-6, with evidence links pointing to the Lab 2.5 signed vault. Authored a minimal Profile selecting those four controls from the NIST catalog. Both documents validated with compliance-trestle v4.0.3.
+
 ---
 *Maintained by Nicole Pounds*
