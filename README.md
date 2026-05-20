@@ -39,9 +39,8 @@ Extended the evidence pipeline with cryptographic chain-of-custody guarantees. E
 ### Lab 5.2 — AWS Security Services Baseline
 Deployed CloudTrail (multi-region, log-file validation), Security Hub with NIST 800-53 Rev 5 and FSBP standards, and AWS Config as the AWS-native compliance backbone. Captured Security Hub findings as a JSON evidence artifact. Controls satisfied: AU-2, AU-12, AU-10 (CloudTrail), RA-5, SI-4 (Security Hub), CM-2, CM-6, CM-8 (Config).
 
- ### Lab 5.4 — GCP Security Services Baseline
-  Deployed Workload Identity Federation for GitHub Actions (replacing service account keys), enabled Data Access audit logs for Cloud Storage, Cloud KMS and IAM (off by default — the most common GCP audit finding), and documented Org Policy controls for org-enrolled projects. Controls satisfied: AC-2, IA-5
-  (WIF), AU-2, AU-12 (audit logs), CM-6, AC-3 (Org Policy reference).
+### Lab 5.4 — GCP Security Services Baseline
+Deployed Workload Identity Federation for GitHub Actions (replacing service account keys), enabled Data Access audit logs for Cloud Storage, Cloud KMS, and IAM (off by default — the most common GCP audit finding), and documented Org Policy controls for org-enrolled projects. Controls satisfied: AC-2, IA-5 (WIF), AU-2, AU-12 (audit logs), CM-6, AC-3 (Org Policy reference).
 
 ---
 *Maintained by Nicole Pounds*
