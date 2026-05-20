@@ -1,6 +1,9 @@
 # macOS system files
 .DS_Store
 
+# Trestle cache (downloaded catalogs)
+oscal/.trestle/cache/
+
 # Local .terraform directories
 .terraform/
 
